@@ -33,6 +33,14 @@ class HRSInterface {
 		float getLatestTemperatureC() {
 			return sensor.readTemperature();
 		}
+
+		int getRawIRValue() {
+			return hrs.getLastIRValue();
+		}
+
+		int getRawRedValue() {
+			return hrs.getLastRedValue();
+		}
 	
 	private:
 		MAX30102 sensor;
@@ -50,4 +58,6 @@ NBIND_CLASS(HRSInterface) {
 	method(getLatestHeartRate);
 	method(getLatestTemperatureF);
 	method(getLatestTemperatureC);
+	method(getRawIRValue);
+	method(getRawRedValue);
 }
