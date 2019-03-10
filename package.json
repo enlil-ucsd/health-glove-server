@@ -12,7 +12,8 @@
 		"autogypi": "^0.2.2",
 		"http": "latest",
 		"nbind": "^0.3.15",
-		"node-gyp": "^3.8.0"
+		"node-gyp": "^3.8.0",
+		"dgram": "latest"
 	},
 	"scripts": {
 		"start": "node src/server.js",
