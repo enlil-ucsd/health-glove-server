@@ -1,5 +1,6 @@
 const nbind = require('nbind');
 const http = require('http');
+require('./discoveryBroadcast.js');
 
 // Start Heart Rate Sensor
 console.log('Starting heart rate sensor...');
@@ -46,6 +47,18 @@ function handleRequest(request, response) {
 				'success': 1,
 				'temperature': hrs.getLatestTemperatureC()
 			});
+			break;
+		case "/rawir":
+			//response.writeHead(200, { 'Content-Type': 'text/plain' });
+			//response.write("" + hrs.getRawIRValue());
+			respondJson({
+				'success': 1,
+				'ir':hrs.getRawIRValue()
+			});
+			break;
+		case "/rawred":
+			response.writeHead(200, { 'Content-Type': 'text/plain' });
+			response.write("" + hrs.getRawRedValue());
 			break;
 	}
 
